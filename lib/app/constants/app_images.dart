@@ -6,8 +6,8 @@ class AppImage {
   static String home = svgIconPath + 'home.svg';
   static String listA = svgIconPath + 'list_a.svg';
   static String list = svgIconPath + 'list.svg';
-  static String settingsA = svgIconPath + 'setting_a.svg';
-  static String settings = svgIconPath + 'setting.svg';
+  static String settingsA = svgIconPath + 'settings_a.svg';
+  static String settings = svgIconPath + 'settings.svg';
   // static String calculator = svgIconPath + 'calculator.svg';
   // static String calculatorA = svgIconPath + 'calculator_a.svg';
   static String design = svgIconPath + 'design.svg';

@@ -1,4 +1,6 @@
+import 'package:embric/app/constants/app_sizes.dart';
 import 'package:embric/app/models/navbar_tab_config.dart';
+import 'package:embric/app/services/size_helper.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
@@ -7,17 +9,17 @@ class CustomBottomNavBar extends StatelessWidget {
   final Function(int) onItemSelected;
 
   const CustomBottomNavBar({
-    Key? key,
+    super.key,
     required this.items,
     required this.currentIndex,
     required this.onItemSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+      padding: EdgeInsets.symmetric(vertical: AppSizes.pagePadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(items.length, (i) {
@@ -26,34 +28,31 @@ class CustomBottomNavBar extends StatelessWidget {
 
           return GestureDetector(
             onTap: () => onItemSelected(i),
-            child: SizedBox(
-              width: 60,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    height: 3,
-                    width: 30,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: AppSizes.navIndicatorHeight,
+                  color: isSelected
+                      ? item.activeForegroundColor
+                      : Colors.transparent,
+                  margin: EdgeInsets.only(bottom: AppSizes.navItemSpacing),
+                ),
+                isSelected ? item.icon : item.inactiveIcon,
+                SizedBox(height: AppSizes.navItemSpacing),
+                Text(
+                  item.title ?? "",
+                  style: TextStyle(
+                    fontSize: scaledFontSize(AppSizes.fontSmall, context),
                     color: isSelected
                         ? item.activeForegroundColor
-                        : Colors.transparent,
-                    margin: const EdgeInsets.only(bottom: 4),
+                        : Theme.of(context).unselectedWidgetColor,
+                    fontWeight: isSelected
+                        ? FontWeight.bold
+                        : FontWeight.normal,
                   ),
-                  isSelected ? item.icon : item.inactiveIcon,
-                  const SizedBox(height: 4),
-                  Text(
-                    item.title ?? "",
-                    style: TextStyle(
-                      color: isSelected
-                          ? item.activeForegroundColor
-                          : Colors.grey,
-                      fontWeight: isSelected
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         }),

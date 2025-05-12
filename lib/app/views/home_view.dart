@@ -18,27 +18,27 @@ class HomeView extends StatelessWidget {
   final List<Widget> _pages = [
     DesignListView(),
     CalculatorView(),
-    SettingView(),
+    SettingsView(),
   ];
 
   final List<ItemConfig> _items = [
     ItemConfig(
-      title: "Designs",
-      icon: SvgPicture.asset(AppImage.svgIconPath),
-      inactiveIcon: SvgPicture.asset(AppImage.svgIconPath),
-      activeForegroundColor: AppColors.redColor,
+      title: "Designs".tr,
+      icon: SvgPicture.asset(AppImage.listA),
+      inactiveIcon: SvgPicture.asset(AppImage.list),
+      activeForegroundColor: AppColors.primaryColor,
     ),
     ItemConfig(
-      title: "Home",
-      icon: SvgPicture.asset(AppImage.svgIconPath),
-      inactiveIcon: SvgPicture.asset(AppImage.svgIconPath),
-      activeForegroundColor: AppColors.redColor,
+      title: "Calculator".tr,
+      icon: SvgPicture.asset(AppImage.homeA),
+      inactiveIcon: SvgPicture.asset(AppImage.home),
+      activeForegroundColor: AppColors.primaryColor,
     ),
     ItemConfig(
-      title: "Settings",
-      icon: SvgPicture.asset(AppImage.svgIconPath),
-      inactiveIcon: SvgPicture.asset(AppImage.svgIconPath),
-      activeForegroundColor: AppColors.redColor,
+      title: "Settings".tr,
+      icon: SvgPicture.asset(AppImage.settingsA),
+      inactiveIcon: SvgPicture.asset(AppImage.settings),
+      activeForegroundColor: AppColors.primaryColor,
     ),
   ];
 

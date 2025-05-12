@@ -3,8 +3,25 @@ import 'app_colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-    fontFamily: 'Poppins', // Apply the Poppins font
+    fontFamily: 'Poppins',
+    primaryColor: AppColors.primaryColor,
+    colorScheme: ColorScheme.light(
+      primary: AppColors.primaryColor,
+      surface: AppColors.whiteColor,
+      onPrimary: AppColors.whiteColor,
+      onSecondary: AppColors.blackColor,
+      onSurface: AppColors.blackColor,
+    ),
     scaffoldBackgroundColor: AppColors.bgColor,
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.whiteColor,
+      titleTextStyle: TextStyle(
+        fontFamily: 'Poppins',
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: AppColors.blackColor,
+      ),
+    ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(color: AppColors.blackColor, fontSize: 16),
       bodyMedium: TextStyle(color: AppColors.blackColor, fontSize: 14),
@@ -19,20 +36,28 @@ class AppTheme {
       titleMedium: TextStyle(color: AppColors.blackColor, fontSize: 22),
       titleSmall: TextStyle(color: AppColors.blackColor, fontSize: 20),
     ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.whiteColor,
-      titleTextStyle: TextStyle(
-        fontFamily: 'Poppins', // Make sure the font is applied here too
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: AppColors.blackColor,
-      ),
-    ),
   );
 
   static ThemeData darkTheme = ThemeData(
-    fontFamily: 'Poppins', // Apply the Poppins font
+    fontFamily: 'Poppins',
+    primaryColor: AppColors.primaryColor,
+    colorScheme: ColorScheme.dark(
+      primary: AppColors.primaryColor,
+      surface: AppColors.blackColor,
+      onPrimary: AppColors.whiteColor,
+      onSecondary: AppColors.whiteColor,
+      onSurface: Colors.white,
+    ),
     scaffoldBackgroundColor: Colors.black,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.black,
+      titleTextStyle: TextStyle(
+        fontFamily: 'Poppins',
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
+    ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
       bodyMedium: TextStyle(color: Colors.white, fontSize: 14),
@@ -46,15 +71,6 @@ class AppTheme {
       titleLarge: TextStyle(color: Colors.white, fontSize: 24),
       titleMedium: TextStyle(color: Colors.white, fontSize: 22),
       titleSmall: TextStyle(color: Colors.white, fontSize: 20),
-    ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: Colors.black,
-      titleTextStyle: TextStyle(
-        fontFamily: 'Poppins', // Make sure the font is applied here too
-        fontSize: 20,
-        fontWeight: FontWeight.w600,
-        color: Colors.white,
-      ),
     ),
   );
 }
